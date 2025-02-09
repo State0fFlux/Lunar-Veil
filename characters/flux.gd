@@ -29,7 +29,6 @@ signal damage_taken
 #   - replenish by finding tarot cards, prayer rooms, idrk something dark and celestial
 	
 func _ready():
-	particles.emitting = false
 	set_form(Stats.Form.HUMAN)  # Set form to HUMAN initially
 
 func _process(delta):
@@ -79,9 +78,11 @@ func set_form(new_form: Stats.Form):
 	match current_form:
 		Stats.Form.HUMAN:
 			Magic.is_power_active = false
+			particles.emitting = false
 			form_data = HumanForm.new()
 		Stats.Form.SHADOW:
 			Magic.is_power_active = true
+			particles.emitting = true
 			form_data = ShadowForm.new()    
 	update_form_attributes()
 	
@@ -93,10 +94,8 @@ func _physics_process(delta: float) -> void:
 	# Check for current state (human or shadow)
 	if current_form == Stats.Form.HUMAN:
 		anim_prefix = "Human"
-		particles.emitting = false
 	elif current_form == Stats.Form.SHADOW:
 		anim_prefix = "Shadow"
-		particles.emitting = true
 		Stats.mana -= delta * Stats.mana_depletion_rate
 		
 	# Add the gravity.

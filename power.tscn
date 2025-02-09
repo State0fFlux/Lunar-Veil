@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://ie0h2mmj1hyl"]
+
+[ext_resource type="Texture2D" uid="uid://d3ihsp8xrx4h4" path="res://art/icons/umbra_shift.png" id="1_vuad2"]
+
+[sub_resource type="GDScript" id="GDScript_uutbb"]
+script/source = "extends Area2D
+
+
+func _on_body_entered(body):
+	if body.name == \"Flux\":
+		Magic.powers.append(\"Gemini's Trick\")
+		queue_free()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mm1wb"]
+radius = 5.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vq81e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vuad2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = SubResource("GDScript_uutbb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mm1wb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.132813, 0.132813)
+sprite_frames = SubResource("SpriteFrames_vq81e")

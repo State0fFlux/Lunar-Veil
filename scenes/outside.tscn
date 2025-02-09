@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bw54fiu5d3tjs" path="res://backgrounds/night.tscn" id="3_jtrxi"]
 [ext_resource type="Texture2D" uid="uid://b4aub65vo7052" path="res://art/tiles/village/TX Tileset Ground.png" id="4_imtto"]
 [ext_resource type="PackedScene" uid="uid://dfpc1c3e2402n" path="res://characters/teacher.tscn" id="5_1kr0y"]
-[ext_resource type="PackedScene" uid="uid://c0vc21a1lcvdp" path="res://scenes/ui.tscn" id="7_b54ll"]
+[ext_resource type="PackedScene" uid="uid://c0vc21a1lcvdp" path="res://ui/ui.tscn" id="7_b54ll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ni3pm"]
 texture = ExtResource("4_imtto")

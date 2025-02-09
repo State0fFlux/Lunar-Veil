@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bw54fiu5d3tjs"]
 
 [ext_resource type="Texture2D" uid="uid://byrajyqp3ugj4" path="res://art/backdrops/night/sky.png" id="1_qgykn"]
-[ext_resource type="Script" path="res://scripts/night.gd" id="1_xdlpl"]
+[ext_resource type="Script" path="res://backgrounds/night.gd" id="1_xdlpl"]
 [ext_resource type="Texture2D" uid="uid://drkc1o3okgc2e" path="res://art/backdrops/night/clouds.png" id="2_3fqlv"]
 [ext_resource type="Texture2D" uid="uid://cduikvrcsqirv" path="res://art/backdrops/night/hills.png" id="4_xodbq"]
 

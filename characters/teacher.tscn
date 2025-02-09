@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://dfpc1c3e2402n"]
 
-[ext_resource type="Script" path="res://scripts/teacher.gd" id="1_df7x2"]
+[ext_resource type="Script" path="res://characters/teacher.gd" id="1_df7x2"]
 [ext_resource type="Texture2D" uid="uid://cffixm4tk0yb" path="res://art/sprites/Teacher/teacher.png" id="1_nhd1s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70v0n"]
