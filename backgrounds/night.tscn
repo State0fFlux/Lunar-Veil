@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw54fiu5d3tjs"]
+
+[ext_resource type="Texture2D" uid="uid://byrajyqp3ugj4" path="res://art/backdrops/night/sky.png" id="1_qgykn"]
+[ext_resource type="Script" path="res://scripts/night.gd" id="1_xdlpl"]
+[ext_resource type="Texture2D" uid="uid://drkc1o3okgc2e" path="res://art/backdrops/night/clouds.png" id="2_3fqlv"]
+[ext_resource type="Texture2D" uid="uid://cduikvrcsqirv" path="res://art/backdrops/night/hills.png" id="4_xodbq"]
+
+[node name="NightBG" type="ParallaxBackground"]
+script = ExtResource("1_xdlpl")
+metadata/_edit_vertical_guides_ = [-192.0]
+metadata/_edit_horizontal_guides_ = [688.0]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1600, 0)
+
+[node name="Sky" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(806.25, 344)
+scale = Vector2(5.375, 5.375)
+texture = ExtResource("1_qgykn")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1600, 0)
+
+[node name="Clouds" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(806.25, 344)
+scale = Vector2(5.375, 5.375)
+texture = ExtResource("2_3fqlv")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1600, 0)
+
+[node name="Hills" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(808.25, 344)
+scale = Vector2(5.375, 5.375)
+texture = ExtResource("4_xodbq")

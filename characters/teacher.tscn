@@ -1,0 +1,170 @@
+[gd_scene load_steps=22 format=3 uid="uid://dfpc1c3e2402n"]
+
+[ext_resource type="Script" path="res://scripts/teacher.gd" id="1_df7x2"]
+[ext_resource type="Texture2D" uid="uid://cffixm4tk0yb" path="res://art/sprites/Teacher/teacher.png" id="1_nhd1s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70v0n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80sah"]
+radius = 8.0
+height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmn4w"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwhtq"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xktlj"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re1pq"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4xmy"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwmnn"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1fu6"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc04h"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q6df"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5sss"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv70o"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_norky"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yop44"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ep2y"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vupw0"]
+atlas = ExtResource("1_nhd1s")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fo8a3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmn4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwhtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xktlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re1pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4xmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwmnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1fu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc04h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q6df")
+}, {
+"duration": 25.0,
+"texture": SubResource("AtlasTexture_d5sss")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv70o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_norky")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yop44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ep2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vupw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ep2y")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_srod2"]
+radius = 256.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_df7x2")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CapsuleShape2D_70v0n")
+debug_color = Color(0.738991, 0, 0.0475001, 0.42)
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_80sah")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5, 0)
+sprite_frames = SubResource("SpriteFrames_fo8a3")
+animation = &"Attack"
+frame = 9
+frame_progress = 1.0
+
+[node name="DetectionRange" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+shape = SubResource("CircleShape2D_srod2")
+debug_color = Color(0.670608, 0.4051, 0.795577, 0.42)

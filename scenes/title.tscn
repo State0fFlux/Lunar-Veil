@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdn60gisayka7"]
+
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_g1j16"]
+[ext_resource type="PackedScene" uid="uid://bw54fiu5d3tjs" path="res://backgrounds/night.tscn" id="2_dej1s"]
+[ext_resource type="FontFile" uid="uid://ddkyquy7xusre" path="res://fonts/eagle-lake.ttf" id="3_tdgk5"]
+[ext_resource type="StyleBox" uid="uid://qhwyx0a4e0hg" path="res://themes/button_disabled.tres" id="4_2tvu4"]
+[ext_resource type="StyleBox" uid="uid://buomtq5ah2mxr" path="res://themes/button_normal.tres" id="5_cap0c"]
+[ext_resource type="StyleBox" uid="uid://bam0jjba3xnb0" path="res://themes/button_pressed.tres" id="6_gp2jj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4fs2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71t4u"]
+
+[sub_resource type="Theme" id="Theme_mc0fq"]
+default_font = ExtResource("3_tdgk5")
+default_font_size = 20
+Button/colors/font_color = Color(0.750722, 0.763134, 0.925391, 1)
+Button/colors/font_disabled_color = Color(0.729412, 0.741176, 0.909804, 0.313726)
+Button/colors/font_focus_color = Color(0.74902, 0.764706, 0.92549, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.491926, 0.505334, 0.800361, 1)
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("3_tdgk5")
+Button/styles/disabled = ExtResource("4_2tvu4")
+Button/styles/focus = SubResource("StyleBoxEmpty_h4fs2")
+Button/styles/hover = ExtResource("5_cap0c")
+Button/styles/normal = ExtResource("5_cap0c")
+Button/styles/pressed = ExtResource("6_gp2jj")
+CheckBox/styles/disabled = ExtResource("4_2tvu4")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_71t4u")
+CheckBox/styles/hover = ExtResource("5_cap0c")
+CheckBox/styles/hover_pressed = ExtResource("6_gp2jj")
+CheckBox/styles/normal = ExtResource("5_cap0c")
+CheckBox/styles/pressed = ExtResource("6_gp2jj")
+CheckButton/styles/hover_pressed = ExtResource("6_gp2jj")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_g1j16")
+metadata/_edit_horizontal_guides_ = [688.0, 688.0]
+metadata/_edit_vertical_guides_ = [1600.0, 800.0]
+
+[node name="NightBG" parent="." instance=ExtResource("2_dej1s")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_mc0fq")
+
+[node name="Play" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 496.0
+offset_right = 636.0
+offset_bottom = 536.0
+scale = Vector2(2, 2)
+text = "Play"
+
+[node name="Quit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 884.0
+offset_top = 496.0
+offset_right = 964.0
+offset_bottom = 536.0
+scale = Vector2(2, 2)
+text = "Quit"
+
+[node name="Title" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 248.0
+offset_right = 566.0
+offset_bottom = 272.0
+scale = Vector2(6, 6)
+theme = SubResource("Theme_mc0fq")
+text = "Lunar Veil"
+scroll_active = false
+
+[connection signal="pressed" from="Control/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
