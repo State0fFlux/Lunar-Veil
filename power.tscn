@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ie0h2mmj1hyl"]
 
-[ext_resource type="Texture2D" uid="uid://d3ihsp8xrx4h4" path="res://art/icons/umbra_shift.png" id="1_vuad2"]
+[ext_resource type="Texture2D" uid="uid://xquv1da8njbs" path="res://art/icons/umbra_shift.png" id="1_vuad2"]
 
 [sub_resource type="GDScript" id="GDScript_uutbb"]
 script/source = "extends Area2D

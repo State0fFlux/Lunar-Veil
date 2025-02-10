@@ -1,7 +1,7 @@
 extends Node
 
 # Append to array whenever new powers are acquired
-var powers = ["umbra_shift", "star blaster"]
+var powers = ["umbra_shift", "void_gaze", "astral_twin"]
 var current_power_index = 0
 var current_power = powers[current_power_index]
 

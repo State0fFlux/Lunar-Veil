@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c0vc21a1lcvdp"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_uhqqt"]
-[ext_resource type="Texture2D" uid="uid://d3ihsp8xrx4h4" path="res://art/icons/umbra_shift.png" id="3_04bjp"]
+[ext_resource type="Texture2D" uid="uid://xquv1da8njbs" path="res://art/icons/umbra_shift.png" id="3_04bjp"]
 [ext_resource type="Theme" uid="uid://cewwoi4udkt0v" path="res://themes/powers.tres" id="6_786n5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60j5d"]
@@ -114,9 +114,9 @@ show_percentage = false
 modulate = Color(0.267843, 0.233769, 0.689272, 1)
 z_index = 1
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 146.0
+offset_bottom = 146.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_04bjp")

@@ -44,11 +44,8 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
-	if direction.x < 0:
-		# flip the character
-		sprite.flip_h = true
-	elif direction.x > 0:
-		sprite.flip_h = false
+	if direction.x < 0 and sprite.scale.x > 0 or direction.x > 0 and sprite.scale.x < 0:
+		sprite.scale.x *= -1
 	move_and_slide();
 
 func attackPlayer():

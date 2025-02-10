@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://byrajyqp3ugj4" path="res://art/backdrops/night/sky.png" id="1_qgykn"]
 [ext_resource type="Script" path="res://backgrounds/night.gd" id="1_xdlpl"]
 [ext_resource type="Texture2D" uid="uid://drkc1o3okgc2e" path="res://art/backdrops/night/clouds.png" id="2_3fqlv"]
-[ext_resource type="Texture2D" uid="uid://cduikvrcsqirv" path="res://art/backdrops/night/hills.png" id="4_xodbq"]
+[ext_resource type="Texture2D" uid="uid://b4112lk82ioem" path="res://art/backdrops/night/hills.png" id="4_xodbq"]
 
 [node name="NightBG" type="ParallaxBackground"]
 script = ExtResource("1_xdlpl")
@@ -32,6 +32,6 @@ texture = ExtResource("2_3fqlv")
 motion_mirroring = Vector2(1600, 0)
 
 [node name="Hills" type="Sprite2D" parent="ParallaxLayer3"]
-position = Vector2(808.25, 344)
-scale = Vector2(5.375, 5.375)
+position = Vector2(807, 344)
+scale = Vector2(5.36667, 5.375)
 texture = ExtResource("4_xodbq")

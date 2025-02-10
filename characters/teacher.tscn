@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dfpc1c3e2402n"]
+[gd_scene load_steps=24 format=3 uid="uid://dfpc1c3e2402n"]
 
 [ext_resource type="Script" path="res://characters/teacher.gd" id="1_df7x2"]
 [ext_resource type="Texture2D" uid="uid://cffixm4tk0yb" path="res://art/sprites/Teacher/teacher.png" id="1_nhd1s"]
@@ -8,6 +8,8 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80sah"]
 radius = 8.0
 height = 48.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8fqw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmn4w"]
 atlas = ExtResource("1_nhd1s")
@@ -135,12 +137,17 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4nvtv"]
+polygon = PackedVector2Array(2, -25, -2, -25, -2, -24, -3, -24, -3, -23, -4, -23, -4, -20, -5, -20, -5, -16, -6, -16, -6, -8, -5, -8, -5, -5, -4, -5, -4, 6, -4, 20, -3, 20, -3, 25, -2, 25, -2, 26, -2, 25, -3, 25, -3, 20, -4, 20, -4, 6, -4, -5, -5, -5, -5, -8, -6, -8, -6, -16, -5, -16, -5, -20, -4, -20, -4, -23, -3, -23, -3, -24, -2, -24, -2, -25)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_srod2"]
 radius = 256.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
+floor_stop_on_slope = false
+floor_snap_length = 100.0
 script = ExtResource("1_df7x2")
 
 [node name="AttackRange" type="Area2D" parent="."]
@@ -155,11 +162,16 @@ debug_color = Color(0.738991, 0, 0.0475001, 0.42)
 shape = SubResource("CapsuleShape2D_80sah")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_k8fqw")
 position = Vector2(-0.5, 0)
 sprite_frames = SubResource("SpriteFrames_fo8a3")
 animation = &"Attack"
 frame = 9
 frame_progress = 1.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedSprite2D"]
+position = Vector2(0.5, 0)
+occluder = SubResource("OccluderPolygon2D_4nvtv")
 
 [node name="DetectionRange" type="Area2D" parent="."]
 collision_layer = 2

@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://b7e3o3k03raf4"]
+[gd_scene load_steps=37 format=3 uid="uid://b7e3o3k03raf4"]
 
 [ext_resource type="Script" path="res://characters/flux.gd" id="1_xcnx5"]
 [ext_resource type="Texture2D" uid="uid://bpydayqxt6k7g" path="res://art/sprites/Flux/humanform2.png" id="2_64jpg"]
 [ext_resource type="Texture2D" uid="uid://cyrxs35s2e5x8" path="res://art/sprites/Flux/humanform.png" id="2_o5htc"]
 [ext_resource type="Texture2D" uid="uid://djdal8ypismcb" path="res://art/sprites/Flux/shadowform.png" id="2_ww4cf"]
+[ext_resource type="Texture2D" uid="uid://2o2yt6dblrti" path="res://art/sprites/LightSprite.png" id="2_y060d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fqpqq"]
 height = 46.0
@@ -436,11 +437,21 @@ _data = {
 }
 
 [node name="Flux" type="CharacterBody2D"]
+light_mask = 0
 collision_layer = 4
 collision_mask = 7
+floor_stop_on_slope = false
+floor_snap_length = 100.0
 script = ExtResource("1_xcnx5")
 
+[node name="Light" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.784314)
+texture = ExtResource("2_y060d")
+texture_scale = 0.4
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_fqpqq")
 
