@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o7wh64kigyuj"
-path="res://.godot/imported/Inside_C.png-4bc6483e94e037adbb0afe5cb53f1211.ctex"
+uid="uid://6nmser6glkhl"
+path="res://.godot/imported/halls.png-110670261877d87982b1363c9fec3e92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/Inside_C.png"
-dest_files=["res://.godot/imported/Inside_C.png-4bc6483e94e037adbb0afe5cb53f1211.ctex"]
+source_file="res://art/tiles/halls.png"
+dest_files=["res://.godot/imported/halls.png-110670261877d87982b1363c9fec3e92.ctex"]
 
 [params]
 
