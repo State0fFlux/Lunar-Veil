@@ -104,6 +104,7 @@ up={
 [layer_names]
 
 2d_render/layer_1="Flux Flashlight"
+2d_render/layer_2="Moon Glow"
 2d_physics/layer_1="walls & floor"
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="player"

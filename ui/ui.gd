@@ -4,7 +4,7 @@ extends Control
 @onready var health_bar = $Health
 @onready var mana_bar = $Mana
 
-@onready var player = $"../../Player/Flux"
+@onready var player = $"../../Flux"
 @onready var charge_bar = $Charge
 @onready var power_image = $Charge/Power
 

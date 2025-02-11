@@ -6,7 +6,7 @@ var chase = false
 var direction: Vector2 = Vector2(0,0)
 var attacking = false
 
-@onready var player = $"../../Player/Flux"
+@onready var player = $"../../Flux"
 @onready var sprite = $AnimatedSprite2D
 @onready var attack_range = $AttackRange
 @onready var detection_range = $DetectionRange

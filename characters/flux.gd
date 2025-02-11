@@ -6,8 +6,8 @@ var form_data: Object = null
 var anim_prefix = "Human"
 
 # Dynamic movement settings
-var speed
-var jump_velocity
+var speed_x
+var jump_height
 var speed_mult = 1
 
 signal damage_taken
@@ -87,8 +87,8 @@ func set_form(new_form: Stats.Form):
 	update_form_attributes()
 	
 func update_form_attributes():
-	jump_velocity = form_data.jump_velocity
-	speed = form_data.speed
+	jump_height = form_data.jump_height
+	speed_x = form_data.speed_x
 
 func _physics_process(delta: float) -> void:
 	# Check for current state (human or shadow)
@@ -114,15 +114,15 @@ func _physics_process(delta: float) -> void:
 		
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
+		velocity.y = jump_height
 		anim.play(anim_prefix + "Jump")
 	
 	if direction:
-		velocity.x = direction * speed * speed_mult
+		velocity.x = direction * speed_x * speed_mult
 		if velocity.y == 0:
 			anim.play(anim_prefix + "Walk")  # Plays "HumanWalk" or "ShadowWalk"
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, speed_x)
 		if velocity.y == 0:
 			anim.play(anim_prefix + "Idle")  # Plays "HumanIdle" or "ShadowIdle"
 	if velocity.y > 0:
@@ -141,4 +141,3 @@ func take_damage(amount):
 	await invincibility.timeout
 	speed_mult = 1
 	Stats.powers_enabled = true
-	

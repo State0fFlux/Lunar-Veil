@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://dm8f63a3rvot3"]
+[gd_scene load_steps=7 format=4 uid="uid://dm8f63a3rvot3"]
 
 [ext_resource type="PackedScene" uid="uid://b7e3o3k03raf4" path="res://characters/flux.tscn" id="1_7152s"]
-[ext_resource type="Script" path="res://scripts/title.gd" id="2_31x81"]
 [ext_resource type="PackedScene" uid="uid://bw54fiu5d3tjs" path="res://backgrounds/night.tscn" id="3_jtrxi"]
 [ext_resource type="PackedScene" uid="uid://dfpc1c3e2402n" path="res://characters/teacher.tscn" id="5_1kr0y"]
 [ext_resource type="TileSet" uid="uid://3mhvlchs2m1b" path="res://maps/tileset.tres" id="6_4hwpi"]
@@ -12,29 +11,24 @@
 scale = Vector2(2, 2)
 metadata/_edit_horizontal_guides_ = [704.0]
 
-[node name="Darkness" type="CanvasModulate" parent="."]
-visible = false
-scale = Vector2(0.5, 0.5)
-color = Color(0, 0, 0, 1)
-
-[node name="Main" type="Node2D" parent="."]
-script = ExtResource("2_31x81")
-
-[node name="NightBG" parent="Main" instance=ExtResource("3_jtrxi")]
+[node name="NightBG" parent="." instance=ExtResource("3_jtrxi")]
 offset = Vector2(0, 16)
 transform = Transform2D(1, 0, 0, 1, 0, 16)
 
-[node name="Player" type="Node" parent="."]
+[node name="Darkness" type="CanvasModulate" parent="."]
+scale = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 1)
 
-[node name="Flux" parent="Player" instance=ExtResource("1_7152s")]
-position = Vector2(1648, 1528)
-scale = Vector2(2, 2)
+[node name="Flux" parent="." instance=ExtResource("1_7152s")]
+position = Vector2(689.5, 293)
+metadata/_edit_lock_ = true
 
 [node name="Mobs" type="Node" parent="."]
 
 [node name="Teacher" parent="Mobs" instance=ExtResource("5_1kr0y")]
 position = Vector2(750, 277)
 scale = Vector2(2, 2)
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -44,6 +38,7 @@ offset_bottom = -464.0
 metadata/_edit_lock_ = true
 
 [node name="Outside" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Earth" type="TileMapLayer" parent="Outside"]
 z_index = -1
@@ -52,7 +47,5 @@ tile_set = ExtResource("6_4hwpi")
 metadata/_edit_lock_ = true
 
 [node name="MainHallways" parent="Outside" instance=ExtResource("7_c3hro")]
-position = Vector2(0, 352)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_set = ExtResource("6_4hwpi")
+position = Vector2(0, -320)
+metadata/_edit_lock_ = true

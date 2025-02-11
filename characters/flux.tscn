@@ -444,12 +444,6 @@ floor_stop_on_slope = false
 floor_snap_length = 100.0
 script = ExtResource("1_xcnx5")
 
-[node name="Light" type="PointLight2D" parent="."]
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 0.784314)
-texture = ExtResource("2_y060d")
-texture_scale = 0.4
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 0
 position = Vector2(0, 2)
@@ -458,7 +452,8 @@ shape = SubResource("CapsuleShape2D_fqpqq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, 0)
 sprite_frames = SubResource("SpriteFrames_u02ci")
-animation = &"HumanFall"
+animation = &"HumanIdle"
+frame = 1
 
 [node name="ShadowParticles" type="GPUParticles2D" parent="AnimatedSprite2D"]
 position = Vector2(0.5, 0)
@@ -482,3 +477,10 @@ speed_scale = 1.5
 [node name="InvincibilityTimer" type="Timer" parent="."]
 process_callback = 0
 one_shot = true
+
+[node name="Light" type="PointLight2D" parent="."]
+position = Vector2(0, 20)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.784314)
+texture = ExtResource("2_y060d")
+texture_scale = 0.4
