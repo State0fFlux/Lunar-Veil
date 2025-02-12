@@ -6,17 +6,18 @@ var form_data: Object = null
 var anim_prefix = "Human"
 
 # Dynamic movement settings
-var speed_x
+@export var speed_x: float
 var jump_height
 var speed_mult = 1
 
 signal damage_taken
 
-@onready var anim = $AnimationPlayer
-@onready var sprite = $AnimatedSprite2D
-@onready var particles = $AnimatedSprite2D/ShadowParticles
+@onready var particles = $ShadowParticles
 @onready var invincibility = $InvincibilityTimer
 @onready var ui = $"../../CanvasLayer/UI"
+@onready var anim_tree = $AnimationTree
+@onready var state_machine = anim_tree.get("parameters/playback")
+@onready var anim_player = $AnimationPlayer
 
 # add something to keep track:
 # - health
@@ -30,8 +31,11 @@ signal damage_taken
 	
 func _ready():
 	set_form(Stats.Form.HUMAN)  # Set form to HUMAN initially
+	update_anim(Vector2(0,1))
 
 func _process(delta):
+	anim_tree.advance(delta * speed_mult * 1.5)
+	
 	# managing death
 	if Stats.health <= 0:
 		queue_free()
@@ -104,34 +108,25 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction < 0:
-		# walking to the left
-		sprite.flip_h = true
-	else:
-		# walking to the right
-		sprite.flip_h = false
+	var direction = Vector2(Input.get_action_strength("right") - Input.get_action_strength("left"), Input.get_action_strength("down") - Input.get_action_strength("up"))
+	update_anim(direction)
 		
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_height
-		anim.play(anim_prefix + "Jump")
-	
-	if direction:
-		velocity.x = direction * speed_x * speed_mult
-		if velocity.y == 0:
-			anim.play(anim_prefix + "Walk")  # Plays "HumanWalk" or "ShadowWalk"
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed_x)
-		if velocity.y == 0:
-			anim.play(anim_prefix + "Idle")  # Plays "HumanIdle" or "ShadowIdle"
-	if velocity.y > 0:
-		anim.play(anim_prefix + "Fall")  # Plays "HumanFall" or "ShadowFall"
-	elif velocity.y < 0:
-		anim.play(anim_prefix + "Jump")  # Plays "HumanJump" or "ShadowJump"
-
+	velocity = direction * speed_x * speed_mult
+	update_state()
 	move_and_slide()
 	
+func update_anim(move_input: Vector2):
+	if move_input:
+		anim_tree.set("parameters/Idle/blend_position", move_input)
+		anim_tree.set("parameters/Walk/blend_position", move_input)
+		
+func update_state():
+	if velocity:
+		state_machine.travel("Walk")
+	else:
+		anim_player.speed_scale = 1
+		state_machine.travel("Idle")
+
 func take_damage(amount):
 	damage_taken.emit()
 	Stats.health -= amount
