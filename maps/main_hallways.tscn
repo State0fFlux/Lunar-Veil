@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=4 uid="uid://ds4bwjfq6p43f"]
+[gd_scene load_steps=3 format=4 uid="uid://ds4bwjfq6p43f"]
 
 [ext_resource type="TileSet" uid="uid://3mhvlchs2m1b" path="res://maps/tileset.tres" id="1_w23a1"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dscji"]
+vertices = PackedVector2Array(640, 635.18, 790, 644.141, 790, 654, 10, 654, 10, 644.141, 480, 635.18, 674.352, 618, 763.859, 618, 36.1406, 618, 125.648, 618, 160, 635.18, 194.352, 618, 285.648, 618, 320, 635.18, 354.352, 618, 445.648, 618, 514.352, 618, 605.648, 618)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 1, 0), PackedInt32Array(4, 8, 9, 10), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(13, 14, 15, 5), PackedInt32Array(5, 16, 17, 0), PackedInt32Array(13, 5, 4), PackedInt32Array(4, 10, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(800, 664, 0, 664, 0, 640, 32, 608, 128, 608, 160, 624, 192, 608, 288, 608, 320, 624, 352, 608, 448, 608, 480, 624, 512, 608, 608, 608, 640, 624, 672, 608, 768, 608, 800, 640)])
 
 [node name="MainHallways" type="Node2D"]
 
@@ -22,3 +27,6 @@ metadata/_edit_lock_ = true
 visible = false
 scale = Vector2(0.5, 0.5)
 color = Color(0, 0, 0, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_dscji")

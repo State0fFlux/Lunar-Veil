@@ -175,8 +175,10 @@ occluder = SubResource("OccluderPolygon2D_4nvtv")
 
 [node name="DetectionRange" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
 shape = SubResource("CircleShape2D_srod2")
 debug_color = Color(0.670608, 0.4051, 0.795577, 0.42)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

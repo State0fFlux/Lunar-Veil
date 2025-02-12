@@ -1,35 +1,40 @@
 extends CharacterBody2D
 
-const SPEED = 350.0
+const SPEED = 50.0
 
 var chase = false
 var direction: Vector2 = Vector2(0,0)
 var attacking = false
+var target_position: Vector2
 
 @onready var player = $"../../Flux"
 @onready var sprite = $AnimatedSprite2D
 @onready var attack_range = $AttackRange
 @onready var detection_range = $DetectionRange
+@onready var navigation_agent = $NavigationAgent2D
 
 func _ready() -> void:
 	sprite.play("Idle")
 	
 func _process(delta: float) -> void:
 	if detection_range.overlaps_body(player):
+		print("gotcha!")
 		if not player.current_form == Stats.Form.SHADOW:
 			chase = true
 	else:
 		chase = false
 
 func _physics_process(delta: float) -> void:
-	direction = (player.position - self.position).normalized()
 	if chase:
+		print(navigation_agent.get_next_path_position())
+		var direction = (navigation_agent.get_next_path_position() - self.position).normalized()
+		velocity = direction * SPEED
 		if attacking:
-			velocity.x = direction.x * SPEED * .75
+			pass
+			#velocity.x = direction.x * SPEED * .75
 		else:
 			# Finding player
 			sprite.play("Walk")
-			velocity.x = direction.x * SPEED
 			if attack_range.overlaps_body(player):
 				player.take_damage(10)
 				attackPlayer()
@@ -38,7 +43,7 @@ func _physics_process(delta: float) -> void:
 
 	else:
 		sprite.play("Idle")
-		velocity.x = 0
+		velocity = Vector2.ZERO
 	
 	# Add the gravity.
 	if not is_on_floor():
