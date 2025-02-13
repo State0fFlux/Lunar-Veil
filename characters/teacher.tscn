@@ -3,11 +3,13 @@
 [ext_resource type="Script" path="res://characters/teacher.gd" id="1_df7x2"]
 [ext_resource type="Texture2D" uid="uid://cffixm4tk0yb" path="res://art/sprites/Teacher/teacher.png" id="1_nhd1s"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70v0n"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmd7u"]
+radius = 5.0
+height = 10.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80sah"]
-radius = 8.0
-height = 48.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70v0n"]
+radius = 17.0
+height = 34.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8fqw"]
 
@@ -145,10 +147,15 @@ radius = 256.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 10
 floor_stop_on_slope = false
 floor_snap_length = 100.0
 script = ExtResource("1_df7x2")
+
+[node name="Feet" type="CollisionShape2D" parent="."]
+position = Vector2(0, 23)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wmd7u")
 
 [node name="AttackRange" type="Area2D" parent="."]
 collision_layer = 2
@@ -157,9 +164,6 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CapsuleShape2D_70v0n")
 debug_color = Color(0.738991, 0, 0.0475001, 0.42)
-
-[node name="Body" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_80sah")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_k8fqw")
@@ -182,3 +186,4 @@ shape = SubResource("CircleShape2D_srod2")
 debug_color = Color(0.670608, 0.4051, 0.795577, 0.42)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true

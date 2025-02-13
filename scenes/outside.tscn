@@ -21,8 +21,7 @@ scale = Vector2(0.5, 0.5)
 color = Color(0, 0, 0, 1)
 
 [node name="Flux" parent="." instance=ExtResource("1_7152s")]
-position = Vector2(689.5, 293)
-metadata/_edit_lock_ = true
+position = Vector2(718, 272)
 
 [node name="Mobs" type="Node" parent="."]
 

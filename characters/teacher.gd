@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
-const SPEED = 50.0
+const SPEED = 305.0
 
-var chase = false
+var chase = true # false
 var direction: Vector2 = Vector2(0,0)
 var attacking = false
 var target_position: Vector2
 
 @onready var player = $"../../Flux"
+@onready var player_hitbox = $"../../Flux/Hitbox"
 @onready var sprite = $AnimatedSprite2D
 @onready var attack_range = $AttackRange
 @onready var detection_range = $DetectionRange
@@ -17,7 +18,7 @@ func _ready() -> void:
 	sprite.play("Idle")
 	
 func _process(delta: float) -> void:
-	if detection_range.overlaps_body(player):
+	if detection_range.overlaps_area(player_hitbox):
 		print("gotcha!")
 		if not player.current_form == Stats.Form.SHADOW:
 			chase = true
@@ -26,16 +27,15 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if chase:
-		print(navigation_agent.get_next_path_position())
-		var direction = (navigation_agent.get_next_path_position() - self.position).normalized()
+		navigation_agent.target_position = player.global_position
+		var direction = (navigation_agent.get_next_path_position() - self.global_position).normalized()
 		velocity = direction * SPEED
 		if attacking:
-			pass
-			#velocity.x = direction.x * SPEED * .75
+			velocity = direction * SPEED * .75
 		else:
 			# Finding player
 			sprite.play("Walk")
-			if attack_range.overlaps_body(player):
+			if attack_range.overlaps_area(player_hitbox):
 				player.take_damage(10)
 				attackPlayer()
 				await sprite.animation_finished
@@ -44,10 +44,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.play("Idle")
 		velocity = Vector2.ZERO
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 		
 	if direction.x < 0 and sprite.scale.x > 0 or direction.x > 0 and sprite.scale.x < 0:
 		sprite.scale.x *= -1
