@@ -15,9 +15,9 @@ signal damage_taken
 @onready var particles = $ShadowParticles
 @onready var invincibility = $InvincibilityTimer
 @onready var ui = $"../../CanvasLayer/UI"
-@onready var anim_tree = $AnimationTree
+@onready var anim_tree = $Human/AnimationTree
 @onready var state_machine = anim_tree.get("parameters/playback")
-@onready var anim_player = $AnimationPlayer
+@onready var anim_player = $Human/AnimationPlayer
 
 # add something to keep track:
 # - health
@@ -108,7 +108,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Vector2(Input.get_action_strength("right") - Input.get_action_strength("left"), Input.get_action_strength("down") - Input.get_action_strength("up"))
+	var direction = Vector2(Input.get_action_strength("right") - Input.get_action_strength("left"), Input.get_action_strength("down") - Input.get_action_strength("up")).normalized()
 	update_anim(direction)
 		
 	velocity = direction * speed_x * speed_mult

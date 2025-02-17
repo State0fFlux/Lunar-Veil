@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://b7e3o3k03raf4"]
 
 [ext_resource type="Script" path="res://characters/flux.gd" id="1_xcnx5"]
-[ext_resource type="Texture2D" uid="uid://de7ncrgco38aw" path="res://art/sprites/Flux/fluxbasic.png" id="2_lj7ch"]
+[ext_resource type="Texture2D" uid="uid://dttkub0l1lci1" path="res://art/sprites/Flux/flux2.png" id="2_8ptkg"]
 [ext_resource type="Texture2D" uid="uid://2o2yt6dblrti" path="res://art/sprites/LightSprite.png" id="2_y060d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5endb"]
@@ -29,8 +29,10 @@ hue_variation_max = -1.0
 turbulence_enabled = true
 turbulence_noise_strength = 20.0
 
-[sub_resource type="Animation" id="Animation_xr6kq"]
+[sub_resource type="Animation" id="Animation_34sc4"]
+resource_name = "HumanIdle"
 loop_mode = 1
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,38 +40,39 @@ tracks/0/path = NodePath("Human:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [2, 3]
+"values": [4, 5, 6, 7]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackShadow:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("LightsOff/BackShadow:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 21)]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackShadow:scale")
-tracks/2/interp = 1
+tracks/2/path = NodePath("LightsOff/BackShadow:scale")
+tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(1, 0.25)]
 }
 
 [sub_resource type="Animation" id="Animation_u52h7"]
 loop_mode = 1
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,27 +80,27 @@ tracks/0/path = NodePath("Human:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 5]
+"values": [8, 9, 10, 11]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackShadow:position")
+tracks/1/path = NodePath("LightsOff/BackShadow:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5, 24)]
+"values": [Vector2(3, 24)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackShadow:scale")
+tracks/2/path = NodePath("LightsOff/BackShadow:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -109,6 +112,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_cm1u5"]
 loop_mode = 1
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -116,27 +120,27 @@ tracks/0/path = NodePath("Human:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [6, 7]
+"values": [12, 13, 14, 15]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackShadow:position")
+tracks/1/path = NodePath("LightsOff/BackShadow:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-4, 24)]
+"values": [Vector2(-3, 24)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackShadow:scale")
+tracks/2/path = NodePath("LightsOff/BackShadow:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -146,10 +150,9 @@ tracks/2/keys = {
 "values": [Vector2(0.25, 0.5)]
 }
 
-[sub_resource type="Animation" id="Animation_34sc4"]
-resource_name = "HumanIdle"
+[sub_resource type="Animation" id="Animation_xr6kq"]
 loop_mode = 1
-step = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -157,69 +160,27 @@ tracks/0/path = NodePath("Human:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BackShadow:position")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0, 26)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BackShadow:scale")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(1, 0.25)]
-}
-
-[sub_resource type="Animation" id="Animation_r8k34"]
-resource_name = "HumanWalk"
-length = 2.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Human:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [11, 12, 13, 12]
+"values": [0, 1, 2, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackShadow:position")
+tracks/1/path = NodePath("LightsOff/BackShadow:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 21)]
+"values": [Vector2(0, 27)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackShadow:scale")
+tracks/2/path = NodePath("LightsOff/BackShadow:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -229,10 +190,10 @@ tracks/2/keys = {
 "values": [Vector2(1, 0.25)]
 }
 
-[sub_resource type="Animation" id="Animation_q8inn"]
+[sub_resource type="Animation" id="Animation_rmn34"]
 length = 2.0
 loop_mode = 1
-step = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -240,15 +201,56 @@ tracks/0/path = NodePath("Human:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [14, 15, 16, 15]
+"values": [24, 25, 26, 27, 28, 29, 30, 31]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackShadow:position")
+tracks/1/path = NodePath("LightsOff/BackShadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightsOff/BackShadow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 19)]
+}
+
+[sub_resource type="Animation" id="Animation_q8inn"]
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Human:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightsOff/BackShadow:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -260,7 +262,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackShadow:scale")
+tracks/2/path = NodePath("LightsOff/BackShadow:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -273,7 +275,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_o4xsc"]
 length = 2.0
 loop_mode = 1
-step = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -281,27 +283,27 @@ tracks/0/path = NodePath("Human:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [17, 18, 19, 18]
+"values": [40, 41, 42, 43, 44, 45, 46, 47]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackShadow:position")
+tracks/1/path = NodePath("LightsOff/BackShadow:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-4, 24)]
+"values": [Vector2(-5, 24)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackShadow:scale")
+tracks/2/path = NodePath("LightsOff/BackShadow:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -311,10 +313,11 @@ tracks/2/keys = {
 "values": [Vector2(0.25, 0.5)]
 }
 
-[sub_resource type="Animation" id="Animation_rmn34"]
+[sub_resource type="Animation" id="Animation_r8k34"]
+resource_name = "HumanWalk"
 length = 2.0
 loop_mode = 1
-step = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -322,34 +325,34 @@ tracks/0/path = NodePath("Human:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 9]
+"values": [16, 17, 18, 19, 20, 21, 22, 23]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackShadow:scale")
+tracks/1/path = NodePath("LightsOff/BackShadow:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 0.25)]
+"values": [Vector2(0, 29)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackShadow:position")
+tracks/2/path = NodePath("LightsOff/BackShadow:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 26)]
+"values": [Vector2(1, 0.25)]
 }
 
 [sub_resource type="Animation" id="Animation_1q5qn"]
@@ -369,7 +372,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackShadow:position")
+tracks/1/path = NodePath("LightsOff/BackShadow:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -381,7 +384,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackShadow:scale")
+tracks/2/path = NodePath("LightsOff/BackShadow:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -409,14 +412,14 @@ loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nddho"]
 _data = {
-"HumanIdleDown": SubResource("Animation_xr6kq"),
+"HumanIdleDown": SubResource("Animation_34sc4"),
 "HumanIdleLeft": SubResource("Animation_u52h7"),
 "HumanIdleRight": SubResource("Animation_cm1u5"),
-"HumanIdleUp": SubResource("Animation_34sc4"),
-"HumanWalkDown": SubResource("Animation_r8k34"),
+"HumanIdleUp": SubResource("Animation_xr6kq"),
+"HumanWalkDown": SubResource("Animation_rmn34"),
 "HumanWalkLeft": SubResource("Animation_q8inn"),
 "HumanWalkRight": SubResource("Animation_o4xsc"),
-"HumanWalkUp": SubResource("Animation_rmn34"),
+"HumanWalkUp": SubResource("Animation_r8k34"),
 "RESET": SubResource("Animation_1q5qn"),
 "ShadowFall": SubResource("Animation_akgxi"),
 "ShadowIdle": SubResource("Animation_lp12h"),
@@ -490,17 +493,16 @@ states/Walk/position = Vector2(402.5, 99.875)
 transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_6ggxw"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_vc4yy"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_s21ig")]
 graph_offset = Vector2(-60.675, -7.905)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ei03l"]
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dtup8"]
 polygon = PackedVector2Array(-5, 2, 5, 2, 5, -7, -5, -7)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ei03l"]
-radius = 13.0
-height = 44.0
-
 [node name="Flux" type="CharacterBody2D"]
 light_mask = 0
+y_sort_enabled = true
 collision_layer = 4
-collision_mask = 12
+collision_mask = 5
 floor_stop_on_slope = false
 floor_snap_length = 100.0
 script = ExtResource("1_xcnx5")
@@ -509,6 +511,7 @@ script = ExtResource("1_xcnx5")
 position = Vector2(0, 23)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5endb")
+metadata/_edit_lock_ = true
 
 [node name="ShadowParticles" type="GPUParticles2D" parent="."]
 emitting = false
@@ -520,41 +523,59 @@ metadata/_edit_lock_ = true
 
 [node name="Human" type="Sprite2D" parent="."]
 light_mask = 5
+y_sort_enabled = true
 position = Vector2(-0.5, 0)
-texture = ExtResource("2_lj7ch")
-hframes = 5
-vframes = 5
+texture = ExtResource("2_8ptkg")
+hframes = 8
+vframes = 6
 frame = 1
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-limit_smoothed = true
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Human"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_nddho")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="Human"]
+root_node = NodePath("../..")
 callback_mode_process = 2
 tree_root = SubResource("AnimationNodeStateMachine_v4dn7")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0.118294, -0.0528634)
 parameters/Walk/blend_position = Vector2(-0.17469, 0.368282)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -1000000
+limit_top = -1000000
+limit_smoothed = true
+metadata/_edit_lock_ = true
+
 [node name="InvincibilityTimer" type="Timer" parent="."]
 process_callback = 0
 one_shot = true
 
-[node name="SelfieLight" type="PointLight2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ei03l")
+debug_color = Color(0.992731, 0, 0.247894, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="LightsOff" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="SelfieLight" type="PointLight2D" parent="LightsOff"]
 position = Vector2(0, 23)
 range_item_cull_mask = 4
 texture = ExtResource("2_y060d")
+metadata/_edit_lock_ = true
 
-[node name="Flashlight" type="PointLight2D" parent="."]
+[node name="Flashlight" type="PointLight2D" parent="LightsOff"]
 position = Vector2(0, 23)
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.784314)
@@ -562,15 +583,7 @@ texture = ExtResource("2_y060d")
 texture_scale = 0.4
 metadata/_edit_lock_ = true
 
-[node name="BackShadow" type="LightOccluder2D" parent="."]
+[node name="BackShadow" type="LightOccluder2D" parent="LightsOff"]
 position = Vector2(0, 21)
 scale = Vector2(1, 0.25)
 occluder = SubResource("OccluderPolygon2D_dtup8")
-
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CapsuleShape2D_ei03l")
-debug_color = Color(0.992731, 0, 0.247894, 0.42)
