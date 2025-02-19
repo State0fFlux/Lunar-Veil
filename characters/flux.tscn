@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://b7e3o3k03raf4"]
 
 [ext_resource type="Script" path="res://characters/flux.gd" id="1_xcnx5"]
-[ext_resource type="Texture2D" uid="uid://dttkub0l1lci1" path="res://art/sprites/Flux/flux2.png" id="2_8ptkg"]
+[ext_resource type="Texture2D" uid="uid://jspsh1ukn223" path="res://art/sprites/Flux/flux2.png" id="2_8ptkg"]
 [ext_resource type="Texture2D" uid="uid://2o2yt6dblrti" path="res://art/sprites/LightSprite.png" id="2_y060d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5endb"]

@@ -1,6 +1,5 @@
-[gd_resource type="TileSet" load_steps=37 format=3 uid="uid://3mhvlchs2m1b"]
+[gd_resource type="TileSet" load_steps=36 format=3 uid="uid://3mhvlchs2m1b"]
 
-[ext_resource type="Texture2D" uid="uid://ci3kg3t7ummn7" path="res://art/tiles/halls.png" id="1_17dgs"]
 [ext_resource type="Texture2D" uid="uid://b4aub65vo7052" path="res://art/tiles/village/TX Tileset Ground.png" id="2_d8rii"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6kcm7"]
@@ -94,7 +93,6 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 8, 14, 8, 14, -4, 2, -6, 2, 
 polygon = PackedVector2Array(16, -16, 16, 8, 12, 8, 12, -16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6vrmp"]
-texture = ExtResource("1_17dgs")
 texture_region_size = Vector2i(32, 32)
 0:2/0 = 0
 0:2/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_6kcm7")
@@ -702,7 +700,6 @@ texture_region_size = Vector2i(32, 32)
 2:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 11.0625, -16, 16, -14, 16, -7.25, 14.6875, -0.875, 14.0625, 3.5, 14.6875, 7.625, 9.9375, 12, 5.9375, 14.75, 0.9375, 14.5, -2.1875, 13, -11.5625, 13.75, -16, 16)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4yri5"]
-load_path = "res://.godot/imported/classroom_props.png-928dc70428ce444b337e4e2d62233e61.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p163e"]
 texture = SubResource("CompressedTexture2D_4yri5")

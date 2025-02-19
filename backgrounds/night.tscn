@@ -8,7 +8,7 @@
 [node name="NightBG" type="ParallaxBackground"]
 script = ExtResource("1_xdlpl")
 metadata/_edit_vertical_guides_ = [-192.0]
-metadata/_edit_horizontal_guides_ = [688.0]
+metadata/_edit_horizontal_guides_ = [688.0, 688.0]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.2, 0.2)

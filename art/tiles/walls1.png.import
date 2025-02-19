@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jspsh1ukn223"
-path="res://.godot/imported/flux2.png-372296b1587311d61c499fb6799ad1f6.ctex"
+uid="uid://ca3mu4oajy1a0"
+path="res://.godot/imported/walls1.png-8243ff45afd92602f5331d1ac8c5ae87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sprites/Flux/flux2.png"
-dest_files=["res://.godot/imported/flux2.png-372296b1587311d61c499fb6799ad1f6.ctex"]
+source_file="res://art/tiles/walls1.png"
+dest_files=["res://.godot/imported/walls1.png-8243ff45afd92602f5331d1ac8c5ae87.ctex"]
 
 [params]
 
