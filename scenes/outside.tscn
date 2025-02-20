@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm8f63a3rvot3"]
+[gd_scene load_steps=9 format=3 uid="uid://dm8f63a3rvot3"]
 
 [ext_resource type="PackedScene" uid="uid://b7e3o3k03raf4" path="res://characters/flux.tscn" id="1_7152s"]
 [ext_resource type="PackedScene" uid="uid://bw54fiu5d3tjs" path="res://backgrounds/night.tscn" id="3_jtrxi"]
@@ -8,21 +8,45 @@
 [ext_resource type="PackedScene" uid="uid://ds4bwjfq6p43f" path="res://maps/main_hallways.tscn" id="7_c3hro"]
 [ext_resource type="PackedScene" uid="uid://cet66wyyr4b6j" path="res://maps/basement.tscn" id="7_u6lkj"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mfl0t"]
+vertices = PackedVector2Array(6267, -1703.67, 6267, 2191.96, -2665.1, 2165.02, -2709.38, -1863.31)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(6277, 2202, 6277, -1713.5, -2719.5, -1873.5, -2675, 2175)])
+
 [node name="World" type="Node2D"]
 scale = Vector2(2, 2)
-metadata/_edit_horizontal_guides_ = [704.0, -466.0]
+metadata/_edit_horizontal_guides_ = [704.0, -466.0, 704.0, 1072.0]
+metadata/_edit_vertical_guides_ = [336.0, 2352.0, 336.0, 2352.0, 336.0, 336.0, 336.0, 1776.0, 336.0]
 
 [node name="NightBG" parent="." instance=ExtResource("3_jtrxi")]
 offset = Vector2(0, 16)
 transform = Transform2D(1, 0, 0, 1, 0, 16)
 metadata/_edit_horizontal_guides_ = [688.0]
 
-[node name="Ground" type="ColorRect" parent="."]
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="1" type="ColorRect" parent="Ground"]
 z_index = -10
-offset_left = -1055.5
-offset_top = 341.0
-offset_right = 2609.5
+offset_left = -1056.0
+offset_top = 464.0
+offset_right = 2608.0
 offset_bottom = 1254.0
+color = Color(0.111392, 0.0938187, 0.0293188, 1)
+
+[node name="2" type="ColorRect" parent="Ground"]
+z_index = -10
+offset_left = -1056.0
+offset_top = 352.0
+offset_right = 144.0
+offset_bottom = 464.0
+color = Color(0.111392, 0.0938187, 0.0293188, 1)
+
+[node name="3" type="ColorRect" parent="Ground"]
+z_index = -10
+offset_left = 1200.0
+offset_top = 352.0
+offset_right = 2608.0
+offset_bottom = 464.0
 color = Color(0.111392, 0.0938187, 0.0293188, 1)
 
 [node name="Darkness" type="CanvasModulate" parent="."]
@@ -64,3 +88,7 @@ metadata/_edit_lock_ = true
 [node name="Basement" parent="." instance=ExtResource("7_u6lkj")]
 z_index = -3
 position = Vector2(448, 448)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_mfl0t")

@@ -1,6 +1,15 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cl408ajani2ie"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://cl408ajani2ie"]
 
 [ext_resource type="Texture2D" uid="uid://bswfmjux12h8i" path="res://art/tiles/floors.png" id="1_hpjla"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_q116k"]
+polygon = PackedVector2Array(-16, 12, 16, 12, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sa3is"]
+polygon = PackedVector2Array(-16, 12, 16, 12, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d2e8h"]
+polygon = PackedVector2Array(-16, 12, 16, 12, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pn08a"]
 texture = ExtResource("1_hpjla")
@@ -63,30 +72,37 @@ texture_region_size = Vector2i(32, 32)
 13:0/0 = 0
 0:1/0 = 0
 0:1/0/terrain_set = 0
+0:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_q116k")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 4, 16, 4, 16, 8, -16, 8)
 0:1/0/terrains_peering_bit/top_side = 0
 1:1/0 = 0
 1:1/0/terrain_set = 0
+1:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_sa3is")
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 4, 16, 4, 16, 8, -16, 8)
 1:1/0/terrains_peering_bit/top_side = 1
 2:1/0 = 0
 2:1/0/terrain_set = 0
+2:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_sa3is")
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 4, 16, 4, 16, 8, -16, 8)
 2:1/0/terrains_peering_bit/top_side = 2
 3:1/0 = 0
 3:1/0/terrain_set = 0
+3:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d2e8h")
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 4, 16, 4, 16, 8, -16, 8)
 3:1/0/terrains_peering_bit/top_side = 3
 4:1/0 = 0
 4:1/0/terrain_set = 0
+4:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d2e8h")
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 4, 16, 4, 16, 8, -16, 8)
 4:1/0/terrains_peering_bit/top_side = 4
 5:1/0 = 0
 5:1/0/terrain_set = 0
+5:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d2e8h")
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 4, 16, 4, 16, 8, -16, 8)
 5:1/0/terrains_peering_bit/top_side = 5
 6:1/0 = 0
 6:1/0/terrain_set = 0
+6:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_d2e8h")
 6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 4, 16, 4, 16, 8, -16, 8)
 6:1/0/terrains_peering_bit/top_side = 6
 7:1/0 = 0
@@ -148,6 +164,7 @@ texture_region_size = Vector2i(32, 32)
 
 [resource]
 tile_size = Vector2i(32, 32)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 6
 terrain_set_0/mode = 2
